@@ -1,0 +1,7 @@
+.tile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-size: clamp(14px, 4vw, 24px);
+}
