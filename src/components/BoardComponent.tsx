@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Confetti from "react-confetti";
 import { Container } from "react-bootstrap";
 import TileButton from "./TileButton";
 import PrimaryBtn from "./primaryBtn";
@@ -7,17 +8,14 @@ import { NUM_COLS, NUM_ROWS } from "../config";
 import { createShuffledPuzzle, isSolved, moveTile } from "../utils/puzzleUtils";
 
 export default function BoardComponent() {
-  // sätter states
   const [puzzle, setPuzzle] = useState<Tile[][]>([]);
   const [solved, setSolved] = useState(false);
   const [moveCount, setMoveCount] = useState(0);
 
-  // shufflar brickorna varje gång när appen laddar (de är [] för,)
   useEffect(() => {
     shuffle();
   }, []);
 
-  //shufflar funktion och sätter de olika staten
   function shuffle() {
     const newPuzzle = createShuffledPuzzle(NUM_ROWS, NUM_COLS);
     setPuzzle(newPuzzle);
@@ -27,15 +25,18 @@ export default function BoardComponent() {
 
   return (
     <Container
-      className="d-flex justify-content-center align-items-center"
+      className="d-flex justify-content-center align-items-center position-relative"
       style={{ height: "100vh", flexDirection: "column" }}
     >
       <h1 className="mb-4">N-pussel</h1>
+
       {puzzle.length === 0 ? (
         <p>Laddar pusslet...</p>
       ) : (
         <section
-          className="d-inline-block border border-dark rounded p-3 bg-light"
+          className={`d-inline-block border border-dark rounded p-3 bg-light ${
+            solved ? "blurred" : ""
+          }`}
           style={{
             maxWidth: "90vw",
           }}
@@ -50,16 +51,18 @@ export default function BoardComponent() {
           >
             {puzzle.map((row, rowIndex) =>
               row.map((tile, columnIndex) => (
-                // skickar propsen och sen ser så de stämmer med interfacen i
-                // TileButton
                 <TileButton
                   key={`${rowIndex}-${columnIndex}`}
                   tile={tile}
                   onClick={() => {
+                    if (solved) {
+                      return;
+                    }
                     const newPuzzle = moveTile(puzzle, rowIndex, columnIndex);
                     if (newPuzzle !== puzzle) {
                       setPuzzle(newPuzzle);
-                      setSolved(isSolved(newPuzzle));
+                      const nowSolved = isSolved(newPuzzle);
+                      setSolved(nowSolved);
                       setMoveCount((prev) => prev + 1);
                     }
                   }}
@@ -69,15 +72,27 @@ export default function BoardComponent() {
           </section>
         </section>
       )}
+
       <section className="mt-4">
-        <PrimaryBtn onClick={() => shuffle()}></PrimaryBtn>
+        <PrimaryBtn onClick={() => shuffle()}>SLUMPA OM</PrimaryBtn>
       </section>
+
       <p className="mt-3">Antal drag: {moveCount}</p>
-      {/* om solved, rendera ut texten */}
+
       {solved && (
-        <h2 className="text-success mt-3">Vad kul! Du löste pusslet!</h2>
+        <>
+          <Confetti />
+          <div className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+            <div
+              className="text-center bg-white p-4 rounded shadow"
+              style={{ width: "400px", maxWidth: "90vw" }}
+            >
+              <h2 className="text-success mb-3">Vad kul! Du löste pusslet!</h2>
+              <PrimaryBtn onClick={() => shuffle()}>SPELA IGEN</PrimaryBtn>
+            </div>
+          </div>
+        </>
       )}
-      <h2 className="text-success mt-3">Vad kul! Du löste pusslet!</h2>
     </Container>
   );
 }
