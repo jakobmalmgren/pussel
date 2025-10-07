@@ -1,10 +1,6 @@
 import { Button as BsButton } from "react-bootstrap";
 import "../styles/TileButton.css";
-
-interface TileButtonProps {
-  tile: number | null;
-  onClick: () => void;
-}
+import type { TileButtonProps } from "../types/puzzleTypes";
 
 export default function TileButton({ tile, onClick }: TileButtonProps) {
   return (
