@@ -5,3 +5,18 @@
   transition: background-color 0.3s ease;
   font-size: clamp(14px, 4vw, 24px);
 }
+
+.filled-tile {
+  background-color: rgb(44, 110, 56);
+  color: black;
+  border: 1px solid #ccc;
+}
+.filled-tile:hover {
+  background-color: rgb(34, 67, 40);
+}
+
+.empty-tile {
+  background-color: #f0f0f0 !important;
+  color: transparent;
+  border: 1px dashed #ccc;
+}

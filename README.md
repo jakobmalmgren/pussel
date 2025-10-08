@@ -1,3 +1,28 @@
+# för och starta projektet:
+
+npm install
+npm run dev
+
+# Mina reflektioner kring pusslet:
+
+- tid:
+  Tidsmässigt skulle jag vilja säga det tog mellan 15-20h. Jag fick först gå igenom hur spelet är uppbyggt samt vad jag behöver få med, vilka funktioner jag behöver, hur och var ska jag börja. Och den researchen tog lite tid med, förberedelsen.
+
+- antaganden och brister:
+  Jag antog först att allting skulle va lösbart och började sedan fundera kring de.
+  Tänk ett scenario om att det är så många rader och columner så det blir i princip omöjligt eller tar väldigt lång tid att lösa? Så sitter man där länge och försöker lösa det. När det i själva verket ibland inte går att lösa imed vissa brickor är felplacerade. Då var jag tvungen att ha en lösning på detta så jag googlade jag hittade en princip som kallas "Inversionsparitet eller paritetskontroll" och det är den jag använt mig av i att checka om de går att lösa.
+
+  I de saker jag anser att jag hade brister har ja försökt lösa detta på bästa vis. De jag påpekade föregående va en sån. En annan var att jag inte använt mig av try/catch vilket kan vara bra vid felhantering och fånga oväntade fel. En annan brist jag med märkte var att funktionerna ibland var väldigt långa, jag kanske kunde brytit ut dem ytterliggare och även gjort fler utils filer.
+
+- mest nöjd med:
+  Jag tycker att jag är väldigt bra på att strukturera kod och har även fått det som positiv feedback från mina lärare på YH. Så det är jag nöjd med!
+  Även att även fast jag tycker denna uppgiften var svår och denna upggiften rörde områden jag inte är van vid så är jag nöjd med hur jag "tacklade" situationen och sökte efter info för att lösa den så bra som möjligt.
+  En funktion som jag är extra nöjd med hur jag löste är movietile.
+  Jag tyckte en del av de funktionerna man skulle skriva va knepiga men DEN var mest knepig och ja körde även fast men löste de till slut och jag är nöjd hur resultatet blev!
+
+- extra:
+  Jag valde som CSS verktyg att använda mig av Bootstrap men gjorde också en del inline css och vanlig css för att visa jag kan det med. Sen kan man använda mediaqueries med för responsivitet och kombinera de me bootstrapen, men för denna uppgiften anser jag inte de behövdes så mycket av den varan och jag tycker de ser bra ut på alla skärmstorlekar
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -71,14 +96,3 @@ export default defineConfig([
   },
 ]);
 ```
-
-<!-- Skriv gärna några rader om hur lång tid det tog att implementera, eventuella antaganden samt brister du själv kan se, vad du är mest nöjd med tekniskt etc. när du skickar in för att vi lättare skall kunna bedöma det du gjort. Även om du kört fast på någon del kan du fortfarande skicka in en lösning som bara löser en delmängd av kraven så kan vi titta på det du gjort och bedöma det. -->
-
-<!-- Se till att skicka med alla dina källfiler och eventuella byggkommandon så att vi kan läsa/bygga koden. -->
-
-<!-- css me olika verkyg för visa -->
-<!--
-Det behöver inte finnas något UI för att välja antalet rader och kolumner, utan det räcker att det är konstanter eller ligger inställningar i en config-fil, så att vi enkelt kan ändra när vi kör din kod. -->
-
-<!-- säg ja satt mig in i mycke så tar sin tid..
-kaske skriva om lie me.. o sne ägga upp i pö om pö o pusha gihub -->

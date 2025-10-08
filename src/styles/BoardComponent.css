@@ -1,0 +1,22 @@
+.board-container {
+  height: 100vh;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.puzzle-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.puzzle-container {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.puzzle-grid {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
