@@ -24,7 +24,7 @@ jobs:
       - name: setup pages
         uses: actions/configure-pages@v3
       - name: upload distfile
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v1
         with:
           path: "./dist"
       - name: deploy to github pages
