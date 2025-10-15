@@ -7,5 +7,5 @@ export default function App() {
   return <BoardComponent></BoardComponent>;
   // testa hör för ska köra PR i Github o de ska ej gå för ja har
   // satt actions till o bara acceptera PR från dev til main, EJ test till main
-  // som ja ska testa nu!....nudå?
+  // som ja ska testa nu!.NY!!
 }
