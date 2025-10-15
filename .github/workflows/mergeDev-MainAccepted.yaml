@@ -1,0 +1,21 @@
+name: Acceptable merge
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checka om PR är från dev branch
+        run: |
+          echo "PR kommer från: ${{ github.head_ref }}"
+          if [ "${{ github.head_ref }}" != "dev" ]; then
+            echo "Fel, du kan enbart göra PR från dev"
+            exit 1
+          else
+            echo "din PR kommer från dev"
+          fi
